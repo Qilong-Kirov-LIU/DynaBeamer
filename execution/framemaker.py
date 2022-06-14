@@ -66,7 +66,7 @@ class OneColumnFrameMaker(BasicFrameMaker):
 
     def add_content(self):
         self.tex.append(TAB + "\\begin{itemize}\n")
-        for line in self.node.note.split("\n"):
+        for line in self.node.note.split("\n")[:-1]:
             self.tex.append(TAB*2 + "\item " + line + "\n")
         self.tex.append(TAB + "\end{itemize}\n")
 
@@ -82,7 +82,7 @@ class TwoColumnFrameMaker(OneColumnFrameMaker):
 
         self.tex.append(TAB*2 + "\\begin{column}{0.6\\textwidth}\n")
         self.tex.append(TAB*3 + "\\begin{itemize}\n")
-        for line in self.node.note.split("\n"):
+        for line in self.node.note.split("\n")[:-1]:
             self.tex.append(TAB*4 + "\item " + line + "\n")
         self.tex.append(TAB*3 + "\end{itemize}\n")
         self.tex.append(TAB*2 + "\end{column}\n")
